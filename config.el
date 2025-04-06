@@ -26,7 +26,9 @@
 
 (after! evil
   (setq evil-want-C-d-scroll nil)
-  (map! :nv "C-d" #'evil-end-of-line)
+  (evil-declare-motion #'swiper-isearch)
+  (map! :nv "C-d" #'evil-end-of-line
+        :nv "/" #'swiper-isearch)
   (setq evil-move-beyond-eol t)
   (map! :leader :nv "v" 'ace-window)
   (map! :n "RET" #'newline-and-indent)
