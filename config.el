@@ -25,11 +25,15 @@
   (setq persp-auto-resume-time 10))
 
 (after! evil
+  (setq avy-keys '(?f ?j ?k ?d ?s ?l)
+        avy-style 'at-full
+        avy-all-windows t
+        avy-single-candidate-jump t)
+
   (setq evil-want-C-d-scroll nil)
-  (evil-declare-motion #'swiper-isearch)
   (map! :nv "C-d" #'evil-end-of-line
-        :nv "/" #'swiper-isearch)
+        :nv "/" #'+evil:swiper)
   (setq evil-move-beyond-eol t)
   (map! :leader :nv "v" 'ace-window)
   (map! :n "RET" #'newline-and-indent)
-  (map! :map evil-snipe-local-mode-map :nv "s" #'evil-avy-goto-char-2))
+  (map! :map evil-snipe-mode-map :nv "s" #'evil-avy-goto-char-timer))
