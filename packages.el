@@ -49,3 +49,4 @@
 ;; (unpin! t)
 
 (package! swiper)
+(package! breadcrumb)
